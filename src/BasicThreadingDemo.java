@@ -63,11 +63,9 @@ class Producer implements Runnable {
 
     public Producer(SharedList sharedList) {
         this.sharedList = sharedList;
-
     }
 
     public void produce() {
-
         while(running) {
             if(!sharedList.getList().isEmpty()) {
                 try {
@@ -80,8 +78,6 @@ class Producer implements Runnable {
             sharedList.getList().add(1);
             sharedList.notifyListIsEmpty();
         }
-
-
     }
 
     public void stop() {
@@ -105,7 +101,6 @@ class Consumer implements Runnable {
         this.sharedList = sharedList;
     }
 
-
     public void consume() throws InterruptedException {
 
         while (running) {
@@ -115,9 +110,7 @@ class Consumer implements Runnable {
 
             sharedList.getList().clear();
             sharedList.notifyListNotEmpty();
-
         }
-
     }
 
     @Override
