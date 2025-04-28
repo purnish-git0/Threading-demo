@@ -5,19 +5,9 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class BasicThreadingDemo {
 
-    static final Object lock1 = new Object();
-
-    static final Object lock2 = new Object();
-
-
-
-
-
 
     public static void startOps() {
         MyExecutor.startProducerConsumer();
-
-
 
     }
 }
@@ -79,9 +69,6 @@ class Producer implements Runnable {
     public void produce() {
 
         while(running) {
-
-
-
             if(!sharedList.getList().isEmpty()) {
                 try {
                     sharedList.waitListIsNOTEmpty();
@@ -99,12 +86,10 @@ class Producer implements Runnable {
 
     public void stop() {
         this.running = false;
-
     }
 
     @Override
     public void run() {
-
         produce();
     }
 }
@@ -148,10 +133,9 @@ class Consumer implements Runnable {
         this.running = false;
     }
 }
+
+
 class MyExecutor {
-
-
-
 
     public static void startProducerConsumer() {
 
@@ -164,9 +148,6 @@ class MyExecutor {
         new Thread(producer).start();
 
         new Thread(consumer).start();
-
-
-
 
     }
 }
