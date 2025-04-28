@@ -5,15 +5,12 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class BasicThreadingDemo {
 
-
     public static void startOps() {
         MyExecutor.startProducerConsumer();
-
     }
 }
 
 class SharedList {
-
 
     private List<Integer> list = new ArrayList<>();
 
@@ -25,7 +22,6 @@ class SharedList {
         synchronized (LIST_IS_EMPTY) {
             LIST_IS_EMPTY.wait();
         }
-
     }
 
     public void waitListIsNOTEmpty() throws InterruptedException {
